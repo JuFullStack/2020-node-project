@@ -1,0 +1,15 @@
+1. React : Javascript 기반의 Front-End Library made by Facebook
+
+2. 특징
+1) 컴포넌트라는 코드의 일부를 활용하여 웹 페이지를 작성한다
+2) 가상 DOM 채택
+-> 데이터가 바뀌었을 때 일단 그려 놓고, 그 다음에 비교하여 변경된 부분만 수정하여 DOM의 변화를 최소화
+3) JSX : HTML 문법과 유사하게 작성하는 자바스크립트
+-> const element = <div>Hello React</div>;
+4) 상태관리, 라우팅, API 통신을 위한 추가 라이브러리
+
+3. React를 배우기 전에 필요한 내용들
+1) Spread 연산자
+2) 비구조화 할당
+3) 불변성 유지 : concat, filter, map
+4) import ..from, export default
