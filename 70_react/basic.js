@@ -93,10 +93,33 @@ console.log(todo);
 // 수정
 todo.find((todo) => todo.id === 3).done = true;
 
-// 불변성 유지
-// 추가
-todo.concat({
-  id: 4,
-  text: "저녁 더 먹기",
-  done: true,
+// 불변성 유지 (추가)
+const inserted = todo.concat({
+  id: 3,
+  text: "저녁먹기",
+  done: false,
 });
+//concat의 return은 배열
+
+// 삭제
+// todo.splice(1,1);
+// console.log(todo);
+// X -> 불변성이 깨짐 (이렇게 쓰지 마세요)
+
+//불변성 유지 (삭제)
+const filtered = inserted.filter((item) => item.id !== 2);
+//filter의 return도 배열
+
+//수정
+//const selected = todo.find((item) => item.id === 3);
+//selected.done = !selected.done;
+//console.log(todo);
+// X -> 불변성이 깨짐 (이렇게 쓰지 마세요)
+
+//불변성 유지 (수정)
+const toggled = filtered.map((item) =>
+  item.id === 3 ? { ...item, done: !item.done } : item
+);
+//map의 return도 배열
+
+//불변성 유지에 쓰이는 method들은 기존의 요소를 paste하여 새로운 것을 만드는 method들이다!
