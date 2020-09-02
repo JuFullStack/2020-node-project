@@ -9,9 +9,16 @@
 import React from "react";
 import Hello from "./Hello";
 import Hello2 from "./Hello2";
+import Hello3 from "./Hello3";
+import StateSample from "./StateSample";
 import "./App.css";
 
 function App() {
+  return <StateSample></StateSample>;
+}
+
+// 주석 처리 해도 됨 (이전 내용임) 사용하고 싶다면 App으로 이름 바꾸기!
+function App2() {
   const name = "React";
   const style = {
     fontSize: 30,
@@ -32,7 +39,8 @@ function App() {
       <Hello2 id="3327" name="이주원" color="blue">
         한국사
       </Hello2>
-      <Hello2 />
+      <Hello2></Hello2>
+      <Hello3 messages={["메시지1", "메시지2", "메시지3"]}></Hello3>
     </>
   );
 }
