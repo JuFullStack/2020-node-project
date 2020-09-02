@@ -14,22 +14,24 @@ import "./App.css";
 function App() {
   const name = "React";
   const style = {
+    fontSize: 30,
     backgroundColor: "yellow",
     color: "blue",
-    fontSize: 30,
   };
 
   return (
     <>
+      <div style={style}>YEE</div>
       {name}
-      <Hello />
-      <div style={style}>
-        <Hello />
-        {name}
-      </div>
       <div class="box"></div> {/*warning 발생*/}
       <div className="box"></div>
-      <Hello name="홍길동" color="red"></Hello>
+      <Hello name="홍길동" color="red" isLoggedin>
+        태그 안의 데이터 {/*children: "텍스트 내용"*/}
+      </Hello>
+      <Hello></Hello>
+      <Hello2 id="3327" name="이주원" color="blue">
+        한국사
+      </Hello2>
       <Hello2 />
     </>
   );
