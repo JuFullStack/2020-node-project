@@ -12,9 +12,12 @@ import Hello2 from "./Hello2";
 import Hello3 from "./Hello3";
 import StateSample from "./StateSample";
 import "./App.css";
+import StateSample2 from "./StateSample2";
+import InputSample from "./InputSample";
+import InputSample2 from "./InputSample2";
 
 function App() {
-  return <StateSample></StateSample>;
+  return <InputSample2></InputSample2>;
 }
 
 // 주석 처리 해도 됨 (이전 내용임) 사용하고 싶다면 App으로 이름 바꾸기!

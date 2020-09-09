@@ -123,3 +123,10 @@ const toggled = filtered.map((item) =>
 //map의 return도 배열
 
 //불변성 유지에 쓰이는 method들은 기존의 요소를 paste하여 새로운 것을 만드는 method들이다!
+
+// ES6 : 계산된 속성명
+const key = "name";
+const obj2 = {
+  [key]: "value",
+};
+console.log(obj2.name);
