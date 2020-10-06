@@ -86,36 +86,10 @@ function MovieReducerApp() {
   const { title, director, year } = state.movie;
   const { movieList } = state;
 
-  // nextId = {current : 4}
-  const nextId = useRef(4);
-
-  const onChange = (e) => {
-    const { name, value } = e.target;
-    dispatch({
-      type: "CHANGE",
-      name,
-      value,
-    });
-  };
-
-  const onCreate = () => {
-    dispatch({
-      type: "CREATE",
-      id: nextId.current,
-    });
-    nextId.current += 1;
-  };
-
   return (
     <>
       <MovieContext.Provider value={dispatch}>
-        <CreateMovie
-          title={title}
-          director={director}
-          year={year}
-          onChange={onChange}
-          onCreate={onCreate}
-        />
+        <CreateMovie title={title} director={director} year={year} />
         <MovieList movieList={movieList} />
       </MovieContext.Provider>
     </>

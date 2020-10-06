@@ -79,4 +79,7 @@ function reducer(state, action) {
 const [state, dispatch] = useReducer(reducer, initialState)
 dispatch(type : "AAA", ...)
 
-14. useContext
+14. context : 프로젝트 안에서 전역적으로 사용할 값을 관리할 때 사용
+1) context 생성 -> createContext()
+2) context.provider 컴포넌트에 value 값으로 값 전달하기
+3) useContext로 context의 값을 받아 사용

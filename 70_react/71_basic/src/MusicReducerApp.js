@@ -58,37 +58,10 @@ function MusicReducerApp() {
   const { title, singer } = state.music;
   const { musicList } = state;
 
-  // nextId = {current : 4}
-  const nextId = useRef(4);
-
-  const onChange = (e) => {
-    // name = title, singer
-    // value = 실제 입력 값 => 제목, 가수명
-    const { name, value } = e.target;
-    dispatch({
-      type: "CHANGE",
-      name,
-      value,
-    });
-  };
-
-  const onCreate = () => {
-    dispatch({
-      type: "CREATE",
-      id: nextId.current,
-    });
-    nextId.current += 1;
-  };
-
   return (
     <>
       <MusicContext.Provider value={dispatch}>
-        <CreateMusic
-          title={title}
-          singer={singer}
-          onChange={onChange}
-          onCreate={onCreate}
-        />
+        <CreateMusic title={title} singer={singer} />
         <MusicList musicList={musicList} />
       </MusicContext.Provider>
     </>
