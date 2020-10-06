@@ -83,3 +83,10 @@ dispatch(type : "AAA", ...)
 1) context 생성 -> createContext()
 2) context.provider 컴포넌트에 value 값으로 값 전달하기
 3) useContext로 context의 값을 받아 사용
+
+15. API 연동하기
+- npx create-react-app 72_api
+- yarn add axios
+- yarn global add json-server
+- music.json 파일 생성
+- json-server --watch music.json --port 5000
