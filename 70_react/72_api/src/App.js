@@ -1,10 +1,11 @@
 import React from "react";
-import musicList from "./musicList";
+import MusicList from "./MusicList";
+import MovieList from "./MovieList";
 
 function App() {
   return (
     <>
-      <musicList></musicList>
+      <MovieList />
     </>
   );
 }

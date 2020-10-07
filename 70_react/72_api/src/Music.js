@@ -1,6 +1,5 @@
-import React, { useReducer, useEffect, useState } from "react";
+import React, { useReducer, useEffect } from "react";
 import axios from "axios";
-import Music from "./Music";
 
 const initialState = {
   loading: false,
@@ -33,14 +32,13 @@ function reducer(state, action) {
   }
 }
 
-function MusicList() {
-  const [id, setId] = useState(null);
+function Music({ id }) {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const fetchData = async () => {
+  const fetchData = async (id) => {
     dispatch({ type: "LOADING" });
     try {
       // GET: 조회, POST: 등록, PUT: 수정, DELETE: 삭제
-      const response = await axios.get("http://localhost:5000/musicList");
+      const response = await axios.get(`http://localhost:5000/musicList/${id}`);
       dispatch({ type: "SUCCESS", data: response.data });
     } catch (e) {
       console.log(e.response.status);
@@ -50,34 +48,23 @@ function MusicList() {
 
   // 화면에 마운트 될 경우 실행
   useEffect(() => {
-    fetchData();
-  }, []);
+    fetchData(id);
+  }, [id]);
 
-  const { loading, data: musicList, error } = state;
+  const { loading, data: music, error } = state;
 
   if (loading) return <div>로딩중...</div>;
   if (error) return <div>에러가 발생했습니다.</div>;
-  if (!musicList) return null;
+  if (!music) return null;
   //return <button onClick={fetchData}>불러오기</button>;
 
   // musicList에서 배열 값 렌더링
   return (
     <>
-      <ul>
-        {musicList.map((music) => (
-          <li
-            key={music.id}
-            onClick={() => setId(music.id)}
-            style={{ cursor: "pointer" }}
-          >
-            {music.title} ({music.singer})
-          </li>
-        ))}
-      </ul>
-      <button onClick={fetchData}>불러오기</button>
-      {id && <Music id={id}></Music>}
+      <h1>{music.title} </h1>
+      <h2>({music.singer})</h2>
     </>
   );
 }
 
-export default MusicList;
+export default Music;
