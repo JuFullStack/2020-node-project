@@ -90,3 +90,12 @@ dispatch(type : "AAA", ...)
 - yarn global add json-server
 - music.json 파일 생성
 - json-server --watch music.json --port 5000
+- MusicList, Music : use useReducer로 구현
+
+16. react-async로 axios 요청하기
+- yarn add react-async
+- MusicList, Music 컴포넌트 : useAsync() 구현
+- api.js로 분리하기
+
+17. React-Router
+- yarn add react-router-dom
